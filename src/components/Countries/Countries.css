@@ -1,0 +1,35 @@
+.Countries {
+    width: 60%;
+    height: fit-content;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    z-index: 1;
+    top : 10%;
+    bottom: 100px;
+    margin: auto;
+    border-radius: 20px;
+
+}
+ul
+{
+    padding: 20px;
+}
+.countryListItem:hover
+{
+    background-color: #aff3f3;
+}
+.countryListItem > img
+{
+    width: 30px;
+    margin-right: 5px;
+
+}
+{
+    background-color: #aff3f3;
+}
+.countryListItem
+{
+    font-size: x-large;
+    margin: 10px;
+    border-radius: 20px;
+}
