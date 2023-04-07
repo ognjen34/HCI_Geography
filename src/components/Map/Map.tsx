@@ -28,8 +28,17 @@ interface MapInnerProps {
 
 const MapInner: FC<MapInnerProps> = ({ selectedCountry, countryClicked }) => {
   const map = useMap()
-    // na back ukloniti sve
-  useEffect(() => {
+  if (countryClicked == false){
+    console.log("FLAPOWFKAPWOFKPAOWFK")
+    map.eachLayer(layer => {
+        if (!(layer instanceof L.TileLayer)) {
+          map.removeLayer(layer);
+        }
+      });
+      var defaultView = {lat: 0, lng: 0, zoom: 2};
+      map.setView(defaultView, defaultView.zoom);
+
+}  useEffect(() => {
     if (selectedCountry != null) {
         console.log("mapa:::" + selectedCountry)
       getGeoJSON(selectedCountry.maps.openStreetMaps).then((geojson) => {
@@ -39,14 +48,18 @@ const MapInner: FC<MapInnerProps> = ({ selectedCountry, countryClicked }) => {
                   map.removeLayer(layer);
                 }
               });
+            
             // add the highlight layer for the country
             L.geoJSON(geojson, {
-            style: {
-                weight: 3,
-                color: 'blue',
-                fillOpacity: 0.1
-            }
-            }).addTo(map);
+                filter: function(feature) {
+                  return feature.geometry.type !== 'Point';
+                },
+                style: {
+                  weight: 3,
+                  color: 'blue',
+                  fillOpacity: 0.1
+                }
+              }).addTo(map);
         
             // fit the map to the bounds of the country
             const bounds = L.geoJSON(geojson).getBounds();
