@@ -1,4 +1,9 @@
+body::-webkit-scrollbar {
+  display: none;
+  --scroll-time: 0.2s
+}
 body {
+
   height: 100%;
   width: 100%;
   margin: 0;

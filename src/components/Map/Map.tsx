@@ -2,19 +2,36 @@ import React, { FC } from 'react';
 import './Map.css';
 import { MapContainer, TileLayer, useMap } from 'react-leaflet'
 import "leaflet/dist/leaflet.css";
+import {LatLngExpression} from "leaflet";
 
-interface MapProps {}
+interface MapProps {
+    selectedCountry: string;
+}
 
-const Map: FC<MapProps> = () => {
+const Map: FC<MapProps> = ({ selectedCountry }) => {
+    console.log(selectedCountry)
     return(
         <MapContainer center={[20, 0]} zoom={3} scrollWheelZoom={false} dragging={false} zoomControl={false} doubleClickZoom={false} >
-            <MapInner />
+            <MapInner selectedCountry={selectedCountry} />
         </MapContainer>
     );
 }
 
-const MapInner: FC = () => {
-    const map = useMap();
+
+interface MapInnerProps {
+    selectedCountry: string;
+}
+
+const MapInner: FC<MapInnerProps> = ({ selectedCountry }) => {
+    const map = useMap()
+    if (selectedCountry != '') {
+        // @ts-ignore
+        console.log(selectedCountry)
+        // @ts-ignore
+
+        map.setView([selectedCountry[0], selectedCountry[1]],6)
+    }
+
     return(
         <>
             <TileLayer

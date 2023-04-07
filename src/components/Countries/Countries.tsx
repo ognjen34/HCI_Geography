@@ -1,9 +1,12 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import './Countries.css';
-import {getCountries} from '../../Services/CountriesService'
-interface CountriesProps {}
+import { getCountries, getCountriesByName } from '../../Services/CountriesService'
 
-const Countries: FC<CountriesProps> = () => {
+interface CountriesProps {
+    onCountryClick: (name: string) => void;
+}
+
+const Countries: FC<CountriesProps> = ({ onCountryClick }) => {
     const [countries, setCountries] = useState<any[]>([]);
 
     useEffect(() => {
@@ -14,14 +17,19 @@ const Countries: FC<CountriesProps> = () => {
         });
     }, []);
 
+    function handleClick(name: string) {
+        getCountriesByName(name).then(c => {
+            console.log(c[0])
+            onCountryClick(c[0].latlng); // Call the onCountryClick prop with the name parameter
+        })
+    }
+
     const listItems = countries.map((country, index) => (
-        <div className="countryListItem">
-            <img src={country.flags.png}/>
-        {country.name.common}
+        <div key={index} className="countryListItem" onClick={() => handleClick(country.name.common)}>
+            <img src={country.flags.png} alt={country.name.common} />
+            {country.name.common}
 
-            <hr></hr>
         </div>
-
     ));
 
     return (
@@ -30,6 +38,5 @@ const Countries: FC<CountriesProps> = () => {
         </div>
     );
 };
-
 
 export default Countries;
