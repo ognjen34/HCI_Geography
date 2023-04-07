@@ -18,6 +18,7 @@ const Countries: FC<CountriesProps> = ({ onCountryClick }) => {
     }, []);
 
     function handleClick(name: string) {
+
         getCountriesByName(name).then(c => {
             console.log(c[0])
             onCountryClick(c[0]); // Call the onCountryClick prop with the name parameter
@@ -37,6 +38,7 @@ const Countries: FC<CountriesProps> = ({ onCountryClick }) => {
             <ul>{listItems}</ul>
         </div>
     );
+
 };
 
 export default Countries;

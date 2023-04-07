@@ -8,13 +8,14 @@ import L from 'leaflet';
 
 interface MapProps {
   selectedCountry: any;
+  countryClicked: boolean
 }
 
-const Map: FC<MapProps> = ({ selectedCountry }) => {
+const Map: FC<MapProps> = ({ selectedCountry, countryClicked }) => {
   console.log(selectedCountry)
   return (
     <MapContainer center={[20, 0]} zoom={3} scrollWheelZoom={false} dragging={false} zoomControl={false} doubleClickZoom={false} >
-      <MapInner selectedCountry={selectedCountry} />
+      <MapInner selectedCountry={selectedCountry} countryClicked = {countryClicked}/>
     </MapContainer>
   );
 }
@@ -22,13 +23,15 @@ const Map: FC<MapProps> = ({ selectedCountry }) => {
 
 interface MapInnerProps {
   selectedCountry: any;
+  countryClicked: boolean
 }
 
-const MapInner: FC<MapInnerProps> = ({ selectedCountry }) => {
+const MapInner: FC<MapInnerProps> = ({ selectedCountry, countryClicked }) => {
   const map = useMap()
-
+    // na back ukloniti sve
   useEffect(() => {
-    if (selectedCountry !== '') {
+    if (selectedCountry != null) {
+        console.log("mapa:::" + selectedCountry)
       getGeoJSON(selectedCountry.maps.openStreetMaps).then((geojson) => {
         if (geojson !== null) {
             map.eachLayer(layer => {
