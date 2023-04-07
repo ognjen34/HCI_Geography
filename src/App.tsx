@@ -23,9 +23,9 @@ function App() {
             <div className="App">
 
                 <div id={"header"}>
-                    <button id={"back-btn"} onClick={() => {
+                    {countryClicked &&<button id={"back-btn"} onClick={() => {
                         setCountryClicked(false)
-                    }}>Go Back</button>
+                    }}>Go Back</button>}
                     {!countryClicked && <h1>Interesting geography</h1>}
                     {countryClicked && <h1>{selectedCountry!.name.common}</h1>}
                 </div>
