@@ -3,11 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import Countries from "./components/Countries/Countries";
 import Map from "./components/Map/Map";
+import CertainCountry from "./components/CertainCountry/CertainCountry";
 
 function App() {
-    const [selectedCountry, setSelectedCountry] = useState("");
-
-    function handleCountryClick(name: string) {
+    const [selectedCountry, setSelectedCountry] = useState<{ name: any } | null>(null);
+    const [countryClicked, setCountryClicked] = useState(false);
+    function handleCountryClick(name: any) {
+        setCountryClicked(true);
         setSelectedCountry(name);
 
             window.scrollTo({
@@ -18,10 +20,20 @@ function App() {
     }
 
     return (
-        <div className="App">
-            <Countries onCountryClick={handleCountryClick} />
-            <Map selectedCountry={selectedCountry} />
-        </div>
+            <div className="App">
+
+                <div id={"header"}>
+                    <button id={"back-btn"} onClick={() => {
+                        setCountryClicked(false)
+                    }}>Go Back</button>
+                    {!countryClicked && <h1>Interesting geography</h1>}
+                    {countryClicked && <h1>{selectedCountry!.name.common}</h1>}
+                </div>
+                {!countryClicked && <Countries onCountryClick={handleCountryClick} />}
+                {countryClicked && <CertainCountry selectedCountry={selectedCountry} />}
+                <Map selectedCountry={selectedCountry} countryClicked={countryClicked} />
+            </div>
+
     );
 }
 
