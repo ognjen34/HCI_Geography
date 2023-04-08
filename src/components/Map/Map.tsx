@@ -14,7 +14,7 @@ interface MapProps {
 const Map: FC<MapProps> = ({ selectedCountry, countryClicked }) => {
   console.log(selectedCountry)
   return (
-    <MapContainer center={[20, 0]} zoom={3} scrollWheelZoom={false} dragging={false} zoomControl={false} doubleClickZoom={false} >
+    <MapContainer center={[20, 0]} zoom={3} scrollWheelZoom={false} dragging={false} zoomControl={false} maxBounds={[[-90,-180],[90,180]]} doubleClickZoom={false} >
       <MapInner selectedCountry={selectedCountry} countryClicked = {countryClicked}/>
     </MapContainer>
   );
