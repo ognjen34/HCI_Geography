@@ -1,0 +1,73 @@
+.CertainCountry {
+    width: 80%;
+    height: fit-content;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    z-index: 1;
+    top : 80%;
+    bottom: 100px;
+    margin: auto;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 33px -21px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 33px -21px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 33px -21px rgba(0,0,0,0.75);
+}
+#back-button{
+    border-radius: 50%;
+}
+.country-name > img
+{
+    height: 50px;
+    margin: 10px;
+
+}
+.country-name > h1
+{
+    margin: 10px;
+}
+.country-name
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.country-info
+{
+
+    width: 80%;
+    -webkit-box-shadow: inset 0px 0px 33px -21px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 33px -21px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 33px -21px rgba(0,0,0,0.75);
+    font-size: x-large;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 0px;
+    display:flex;
+    justify-content: center;
+
+}
+.country-info-container >p
+{
+    padding-left: 20px;
+    width: 20%;
+    text-align: justify;
+    }
+.country-info-container  p{
+
+    font-size: large;
+    margin: 10px;
+}
+
+.country-info-container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+.timezone-list
+{
+    font-size: medium;
+    margin: 0;
+}

@@ -1,0 +1,45 @@
+.Countries {
+    width: 80%;
+    height: fit-content;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    z-index: 1;
+    top : 80%;
+    bottom: 100px;
+    margin: auto;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 33px -21px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 33px -21px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 33px -21px rgba(0,0,0,0.75);
+
+}
+ul
+{
+
+    padding: 20px;
+    margin-top: 0;
+}
+.countryListItem:hover
+{
+    background-color: #aff3f3;
+    cursor: pointer;
+}
+.countryListItem > img
+{
+    width: 30px;
+    margin-right: 5px;
+
+}
+{
+    background-color: #aff3f3;
+}
+.countryListItem
+{
+    -webkit-box-shadow: inset 0px 0px 33px -21px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 33px -21px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 33px -21px rgba(0,0,0,0.75);
+    font-size: x-large;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+}
