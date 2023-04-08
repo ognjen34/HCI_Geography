@@ -4,6 +4,7 @@ import './App.css';
 import Countries from "./components/Countries/Countries";
 import Map from "./components/Map/Map";
 import CertainCountry from "./components/CertainCountry/CertainCountry";
+import backImage from './assets/images/back.png';
 
 
 
@@ -15,7 +16,7 @@ function CompareButton(props: { setCompareClicked: (clicked: boolean) => void })
         props.setCompareClicked(true);
     }
     return(
-        <button onClick={CompareButtonClicked}>Compare</button>
+        <button onClick={CompareButtonClicked} id={"compare-button"} >Compare</button>
     )
 }
 
@@ -46,21 +47,33 @@ function App() {
 
         });
     }
+    function setStates(selected:any, secondSelected: any, clicked:boolean, compared:boolean, secondClicked:boolean){
+        setSecondSelectedCountry(secondSelected)
+        setSelectedCountry(selected)
+        setCountryClicked(clicked)
+        setSecondCountryClicked(secondClicked)
+        setCompareClicked(compared)
+    }
 
     return (
             <div className="App">
 
                 <div id={"header"}>
                     {countryClicked &&<button id={"back-btn"} onClick={() => {
-                        setSecondSelectedCountry(null)
-                        setSelectedCountry(null)
-                        setCountryClicked(false)
-                        setSecondCountryClicked(false)
-                        setCompareClicked(false)
-                    }}>Go Back</button>}
+
+                        if(compareClicked && !secondCountryClicked) {
+                            setStates(selectedCountry, null, true, false, false)
+                        }
+                        if(compareClicked && secondCountryClicked) {
+                            setStates(selectedCountry, null, true, true, false)
+                        }
+                        if(!compareClicked) {
+                            setStates(null, null, false, false, false)
+                        }
+
+                    }}><img src={backImage}/></button>}
+                    <h1>Interesting geography</h1>
                     {countryClicked && <CompareButton setCompareClicked={setCompareClicked}/>}
-                    {!countryClicked && <h1>Interesting geography</h1>}
-                    {countryClicked && <h1>{selectedCountry!.name.common}</h1>}
                 </div>
 
                 {compareClicked ? (
