@@ -66,12 +66,15 @@ function App() {
                 {compareClicked ? (
                     <div className = "countryContainer">
                         <div className = "innerCounteryContainer">
+                            <div className = "left-map">
                             <Map selectedCountry={selectedCountry} countryClicked={countryClicked} />
+                            </div>
                             <CertainCountry selectedCountry={selectedCountry} />
                         </div>
                         <div className = "innerCounteryContainer">
+                            <div className= "right-map">
                             <Map  selectedCountry={secondSelectedCountry} countryClicked={secondCountryClicked} />
-
+                            </div>
                                 {!secondCountryClicked && <Countries onCountryClick={handleSecondCountryClick} />}
                                 {secondCountryClicked && <CertainCountry selectedCountry={secondSelectedCountry} />}
 
@@ -84,7 +87,9 @@ function App() {
                     <div className = "singleCountryContainer">
                         {!countryClicked && <Countries onCountryClick={handleCountryClick} />}
                         {countryClicked && <CertainCountry selectedCountry={selectedCountry} />}
+                        <div className="whole-map">
                         <Map selectedCountry={selectedCountry} countryClicked={countryClicked} />
+                        </div>
                     </div>
 
                 )}
