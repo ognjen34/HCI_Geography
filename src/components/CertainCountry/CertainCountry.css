@@ -30,6 +30,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 
 .country-info
@@ -64,10 +65,111 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    padding-right: 20px;
+
 }
 .timezone-list
 {
     font-size: medium;
     margin: 0;
 }
+.fixed-height{
+    display: flex;
+    align-items: center;
+    height:180px;
+}
+.fixed-height-denonyms{
+    display: flex;
+    align-items: center;
+    height:100px;
+}
+
+.fixed-height-timezones{
+    display: flex;
+    align-items: center;
+    height:350px;
+}
+.fixed-height-currencies{
+    display: flex;
+    align-items: center;
+    height:100px;
+}
+/* Small devices (tablets) */
+@media only screen and (max-width: 768px) {
+    .CertainCountry {
+        width: 100%;
+        border-radius: 0%;
+    }
+    h1{
+        font-size: large;
+    }
+    .country-info-container
+    {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    }
+
+    .country-info-container >p
+    {
+    padding-left: 0px;
+    width: 100%;
+    text-align: center;   }
+    .country-info-container p{
+        font-size: large;
+        margin: 10px;
+        text-align: center;
+    }
+    .country-info-container >div{
+        font-weight: bold; 
+
+    }
+
+  }
+  
+  /* Medium devices (desktops, laptops) */
+  @media only screen and (min-width: 769px) and (max-width: 992px) {
+    .CertainCountry {
+        width: 100%;
+        border-radius: 0%;
+    }
+
+    .country-info-container
+    {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    }
+
+    .country-info-container >p
+    {
+    padding-left: 0px;
+    width: 100%;
+    text-align: center;   }
+    .country-info-container p{
+        font-size: x-large;
+        margin: 10px;
+        text-align: center;
+    }
+    .country-info-container >div{
+        font-weight: bold; 
+
+    }
+
+  }
+  
+  /* Large devices (desktops, laptops) */
+  @media only screen and (min-width: 993px) and (max-width: 1350px) {
+    .fixed-height>p{
+        padding:20%;
+    }
+  }
+  
+  /* Extra large devices (large desktops, high-res laptops) */
+  @media only screen and (min-width: 1350px) {
+    .fixed-height>p{
+        padding:20%;
+    }
+  }
+  

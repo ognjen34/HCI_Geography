@@ -13,13 +13,13 @@ const CertainCountry: FC<CertainCountryProps> = (selectedCountry) =>{
      return (
       <div className="CertainCountry">
           <div className="country-name">
-              <h1>{selectedCountry.selectedCountry.name.official}</h1>
+              <h1>{selectedCountry.selectedCountry.name.common}</h1>
               <img src={selectedCountry.selectedCountry.coatOfArms.png} alt="" />
           </div>
           <div className="country-info-container">
-              <p>Common name</p>
-              <div  className="country-info" >
-                  <p>{selectedCountry.selectedCountry.name.common}</p>
+              <p>Official name</p>
+              <div  className="country-info fixed-height" >
+                  <p>{selectedCountry.selectedCountry.name.official}</p>
               </div>
           </div>
           <div className="country-info-container">
@@ -54,7 +54,7 @@ const CertainCountry: FC<CertainCountryProps> = (selectedCountry) =>{
           </div>
           <div className="country-info-container">
               <p>Currency</p>
-              <div  className="country-info" >
+              <div  className="country-info fixed-height-currencies" >
                   <p>{selectedCountry.selectedCountry.currencies[(Object.keys(selectedCountry.selectedCountry.currencies)[0])].name}</p>
               </div>
           </div>
@@ -66,13 +66,13 @@ const CertainCountry: FC<CertainCountryProps> = (selectedCountry) =>{
           </div>
           <div className="country-info-container">
               <p>Demonyms</p>
-              <div  className="country-info" >
+              <div  className="country-info fixed-height-denonyms" >
                   <p>{selectedCountry.selectedCountry.demonyms.eng.m }, { selectedCountry.selectedCountry.demonyms.eng.f}</p>
               </div>
           </div>
           <div className="country-info-container">
               <p>Timezones</p>
-              <div  className="country-info" >
+              <div  className="country-info fixed-height-timezones" >
                   <ul className="timezone-list">
                       {selectedCountry.selectedCountry.timezones.map((timezone: string, index: number) => (
                           <li key={index}>{timezone}</li>
