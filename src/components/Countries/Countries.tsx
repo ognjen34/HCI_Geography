@@ -4,10 +4,14 @@ import { getCountries, getCountriesByName } from '../../Services/CountriesServic
 
 interface CountriesProps {
     onCountryClick: (name: string) => void;
+    stringQuery:string;
 }
 
-const Countries: FC<CountriesProps> = ({ onCountryClick }) => {
+const Countries: FC<CountriesProps> = ({ onCountryClick,stringQuery }) => {
     const [countries, setCountries] = useState<any[]>([]);
+
+
+
 
     useEffect(() => {
         getCountries().then((res) => {
@@ -16,6 +20,23 @@ const Countries: FC<CountriesProps> = ({ onCountryClick }) => {
             console.error(error);
         });
     }, []);
+
+    useEffect(() => {
+        if (stringQuery) {
+            getCountriesByName(stringQuery).then((res) => {
+                setCountries(res);
+            }).catch((error) => {
+                console.error(error);
+            });
+        } else {
+            getCountries().then((res) => {
+                setCountries(res);
+            }).catch((error) => {
+                console.error(error);
+            });
+        }
+    }, [stringQuery]);
+
 
     function handleClick(name: string) {
 

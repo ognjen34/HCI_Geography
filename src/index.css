@@ -1,17 +1,21 @@
-body::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
-  --scroll-time: 0.2s
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }
 body {
-
+  scrollbar-width: none; /* Firefox */
   height: 100%;
   width: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+  overflow: -moz-scrollbars-none; /* Old Firefox */
 }
 #root{
   width: 100%;
