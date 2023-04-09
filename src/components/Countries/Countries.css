@@ -16,7 +16,7 @@
 ul
 {
 
-    padding: 20px;
+    padding: 10px;
     margin-top: 0;
 }
 .countryListItem:hover
@@ -30,9 +30,7 @@ ul
     margin-right: 5px;
 
 }
-{
-    background-color: #aff3f3;
-}
+
 .countryListItem
 {
     -webkit-box-shadow: inset 0px 0px 33px -21px rgba(0,0,0,0.75);
@@ -46,6 +44,6 @@ ul
 @media only screen and (max-width: 999px) {
     .Countries {
         width: 100%;
-        border-radius: 0%;
+        border-radius:0;
     }
   }

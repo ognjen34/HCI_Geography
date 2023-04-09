@@ -12,7 +12,7 @@ const CertainCountry: FC<CertainCountryProps> = (selectedCountry) =>{
     console.log("certain " + selectedCountry.selectedCountry)
      return (
       <div className="CertainCountry">
-          <div className="country-name">
+          <div className="country-name fixed-height-name">
               <h1>{selectedCountry.selectedCountry.name.common}</h1>
               <img src={selectedCountry.selectedCountry.coatOfArms.png} alt="" />
           </div>
@@ -30,13 +30,13 @@ const CertainCountry: FC<CertainCountryProps> = (selectedCountry) =>{
           </div>
           <div className="country-info-container">
               <p>Subregion</p>
-              <div  className="country-info" >
+              <div  className="country-info fixed-height-smaller" >
                   <p>{selectedCountry.selectedCountry.subregion}</p>
               </div>
           </div>
           <div className="country-info-container">
               <p>Capital</p>
-              <div  className="country-info" >
+              <div  className="country-info  fixed-height-smaller" >
                   <p>{selectedCountry.selectedCountry.capital}</p>
               </div>
           </div>
@@ -54,7 +54,7 @@ const CertainCountry: FC<CertainCountryProps> = (selectedCountry) =>{
           </div>
           <div className="country-info-container">
               <p>Currency</p>
-              <div  className="country-info fixed-height-currencies" >
+              <div  className="country-info fixed-height-smaller" >
                   <p>{selectedCountry.selectedCountry.currencies[(Object.keys(selectedCountry.selectedCountry.currencies)[0])].name}</p>
               </div>
           </div>
