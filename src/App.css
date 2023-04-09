@@ -1,6 +1,5 @@
 html,body
 {
-  min-width: 600px;
   width: 100%;
   height: 100%;
 }
@@ -24,12 +23,11 @@ html,body
   -moz-box-shadow: 0px 0px 33px -21px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 33px -21px rgba(0,0,0,0.75);
 }
-.search-container{
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-height: 80%;
+
+.flex-search{
+  display:flex;
+  width: 100%;
+  justify-content: center;
 }
 #back-btn{
   height: 100%!important;
@@ -118,8 +116,6 @@ right: 0
 .search-container {
   position: absolute;
   top: calc(80% - 50px); /* subtract half the input height */
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 2;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 20px;

@@ -92,14 +92,16 @@ function App() {
                 </div>
 
                 {((!selectedCountry && !compareClicked) || (selectedCountry && compareClicked) && (!secondSelectedCountry && compareClicked && selectedCountry))&& (
-                        <div className="search-container">
-                            <input
-                                type="text"
-                                placeholder="Search countries"
-                                onFocus={() => setShowSearch(true)}
-                                onBlur={() => setShowSearch(false)}
-                                onInput={(event: React.FormEvent<HTMLInputElement>) => handleSearch(event.currentTarget.value)}
-                            />
+                        <div className="flex-search">
+                            <div className="search-container">
+                                <input
+                                    type="text"
+                                    placeholder="Search countries"
+                                    onFocus={() => setShowSearch(true)}
+                                    onBlur={() => setShowSearch(false)}
+                                    onInput={(event: React.FormEvent<HTMLInputElement>) => handleSearch(event.currentTarget.value)}
+                                />
+                            </div>
                         </div>
                     )}
                 {compareClicked ? (

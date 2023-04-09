@@ -15,10 +15,16 @@ const Countries: FC<CountriesProps> = ({ onCountryClick,stringQuery }) => {
 
     useEffect(() => {
         getCountries().then((res) => {
-            setCountries(res);
-        }).catch((error) => {
+            // Sort the array of countries by name
+            const sortedCountries = res.sort((a: { name: { common: string; }; }, b: { name: { common: any; }; }) => {
+              return a.name.common.localeCompare(b.name.common);
+            });
+          
+            // Update the state with the sorted countries
+            setCountries(sortedCountries);
+          }).catch((error) => {
             console.error(error);
-        });
+          });
     }, []);
 
     useEffect(() => {
@@ -30,10 +36,16 @@ const Countries: FC<CountriesProps> = ({ onCountryClick,stringQuery }) => {
             });
         } else {
             getCountries().then((res) => {
-                setCountries(res);
-            }).catch((error) => {
+                // Sort the array of countries by name
+                const sortedCountries = res.sort((a: { name: { common: string; }; }, b: { name: { common: any; }; }) => {
+                  return a.name.common.localeCompare(b.name.common);
+                });
+              
+                // Update the state with the sorted countries
+                setCountries(sortedCountries);
+              }).catch((error) => {
                 console.error(error);
-            });
+              });
         }
     }, [stringQuery]);
 

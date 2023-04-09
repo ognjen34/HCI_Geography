@@ -24,6 +24,7 @@
 .country-name > h1
 {
     margin: 10px;
+    text-align: center;
 }
 .country-name
 {
@@ -66,8 +67,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding-right: 20px;
-
+    padding-left: 10px;
+    padding-right:10px;
 }
 .timezone-list
 {
@@ -90,10 +91,16 @@
     align-items: center;
     height:350px;
 }
-.fixed-height-currencies{
+
+.fixed-height-smaller{
     display: flex;
     align-items: center;
     height:100px;
+}
+.fixed-height-name{
+    display: flex;
+    align-items: center;
+    height:150px;
 }
 /* Small devices (tablets) */
 @media only screen and (max-width: 768px) {
