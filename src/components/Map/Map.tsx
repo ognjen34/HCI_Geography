@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import './Map.css';
 import { MapContainer, TileLayer, useMap } from 'react-leaflet'
 import "leaflet/dist/leaflet.css";
@@ -13,8 +13,10 @@ interface MapProps {
 
 const Map: FC<MapProps> = ({ selectedCountry, countryClicked }) => {
   console.log(selectedCountry)
+
   return (
-    <MapContainer center={[20, 0]} zoom={3} scrollWheelZoom={false} dragging={false} zoomControl={false} maxBounds={[[-90,-180],[90,180]]} doubleClickZoom={false} >
+    <MapContainer center={[20, 0]} zoom={3} scrollWheelZoom={false} dragging={false} zoomControl={false} maxBounds={[[-90,-180],[90,180]]} minZoom={2}
+    maxZoom={7} doubleClickZoom={false} >
       <MapInner selectedCountry={selectedCountry} countryClicked = {countryClicked}/>
     </MapContainer>
   );
@@ -28,6 +30,7 @@ interface MapInnerProps {
 
 const MapInner: FC<MapInnerProps> = ({ selectedCountry, countryClicked }) => {
   const map = useMap()
+
   if (countryClicked == false){
     console.log("FLAPOWFKAPWOFKPAOWFK")
     map.eachLayer(layer => {

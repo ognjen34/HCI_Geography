@@ -27,6 +27,9 @@ function App() {
 
     const [countryClicked, setCountryClicked] = useState(false);
     const [secondCountryClicked, setSecondCountryClicked] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [showSearch, setShowSearch] = useState<boolean>(false);
+
     function handleCountryClick(name: any) {
         setCountryClicked(true);
         setSelectedCountry(name);
@@ -36,6 +39,7 @@ function App() {
                 behavior: "smooth"
 
         });
+        setSearchQuery("");
     }
     function handleSecondCountryClick(name: any) {
         setSecondCountryClicked(true);
@@ -46,13 +50,24 @@ function App() {
             behavior: "smooth"
 
         });
+        setSearchQuery("");
     }
+
     function setStates(selected:any, secondSelected: any, clicked:boolean, compared:boolean, secondClicked:boolean){
         setSecondSelectedCountry(secondSelected)
         setSelectedCountry(selected)
         setCountryClicked(clicked)
         setSecondCountryClicked(secondClicked)
         setCompareClicked(compared)
+        setShowSearch(false);
+        setSearchQuery("");
+    }
+
+    function handleSearch(input:any) {
+        setShowSearch((prevState) => !prevState);
+        setSearchQuery(input);
+        console.log(input)
+
     }
 
     return (
@@ -76,7 +91,19 @@ function App() {
                     {countryClicked && <CompareButton setCompareClicked={setCompareClicked}/>}
                 </div>
 
+                {((!selectedCountry && !compareClicked) || (selectedCountry && compareClicked) && (!secondSelectedCountry && compareClicked && selectedCountry))&& (
+                        <div className="search-container">
+                            <input
+                                type="text"
+                                placeholder="Search countries"
+                                onFocus={() => setShowSearch(true)}
+                                onBlur={() => setShowSearch(false)}
+                                onInput={(event: React.FormEvent<HTMLInputElement>) => handleSearch(event.currentTarget.value)}
+                            />
+                        </div>
+                    )}
                 {compareClicked ? (
+                    
                     <div className = "countryContainer">
                         <div className = "innerCounteryContainer">
                             <div className = "left-map">
@@ -88,7 +115,7 @@ function App() {
                             <div className= "right-map">
                             <Map  selectedCountry={secondSelectedCountry} countryClicked={secondCountryClicked} />
                             </div>
-                                {!secondCountryClicked && <Countries onCountryClick={handleSecondCountryClick} />}
+                                {!secondCountryClicked && <Countries onCountryClick={handleSecondCountryClick} stringQuery={searchQuery} />}
                                 {secondCountryClicked && <CertainCountry selectedCountry={secondSelectedCountry} />}
 
 
@@ -98,7 +125,7 @@ function App() {
 
                 ) : (
                     <div className = "singleCountryContainer">
-                        {!countryClicked && <Countries onCountryClick={handleCountryClick} />}
+                        {!countryClicked && <Countries onCountryClick={handleCountryClick} stringQuery={searchQuery}/>}
                         {countryClicked && <CertainCountry selectedCountry={selectedCountry} />}
                         <div className="whole-map">
                         <Map selectedCountry={selectedCountry} countryClicked={countryClicked} />
