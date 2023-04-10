@@ -5,6 +5,7 @@ import Countries from "./components/Countries/Countries";
 import Map from "./components/Map/Map";
 import CertainCountry from "./components/CertainCountry/CertainCountry";
 import backImage from './assets/images/back.png';
+import logoImage from './assets/images/LOGOXD.png';
 
 
 
@@ -87,8 +88,8 @@ function App() {
                         }
 
                     }}><img src={backImage}/></button>}
-                    <h1>Interesting geography</h1>
-                    {countryClicked && <CompareButton setCompareClicked={setCompareClicked}/>}
+                    <img className="logo-xd" onClick={() =>(setStates(null,null,false,false,false))} src={logoImage}/>
+                    {countryClicked && !compareClicked && <CompareButton  setCompareClicked={setCompareClicked}/>}
                 </div>
 
                 {((!selectedCountry && !compareClicked) || (selectedCountry && compareClicked) && (!secondSelectedCountry && compareClicked && selectedCountry))&& (
