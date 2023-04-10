@@ -46,4 +46,15 @@ ul
         width: 100%;
         border-radius:0;
     }
+
   }
+@media only screen and (max-width: 699px) {
+    .countryListItem
+    {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+    }
+
+}
